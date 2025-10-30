@@ -20,16 +20,16 @@
       Bonus: Make it move back and forth every time the button is clicked.
     </h4>
     <div class="moveChallenge">
-      <div class="box" id="leftBlock">
-        <div id="theThing">
+      <div class="box" id="leftBlock" name="leftBlock">
+        <div id="theThing" name="theThing">
           <img src="assets/cake.png" alt="image of a cake" />
         </div>
       </div>
-      <div class="box" id="rightBlock"></div>
+      <div class="box" id="rightBlock" name="rightBlock"></div>
     </div>
 
     <div class="activate">
-      <button onclick="moveTheThing()">Move The Thing</button>
+      <button onclick="moveTheThing()" id="cakeClick" name="cakeClick">Move The Thing</button>
     </div>
     <hr />
 
@@ -42,14 +42,14 @@
       <p id="fancyText">Hey look at this cool text!</p>
     </div>
     <div class="activate">
-      <button onclick="styleTheText()">Style!</button>
+      <button onclick="styleTheText()" id="styleClick" name="styleClick">Style!</button>
     </div>
 
     <hr />
 
     <h2>3. Get the Form Values</h2>
     <div>
-      <form action="#">
+      <form action="#" id="formValues">
         <div>
           <label for="firstField">First Field: </label
           ><input id="firstField" name="firstField" type="text" />
@@ -60,16 +60,16 @@
         </div>
         <div>
           <label for="thirdField">Third Field: </label>
-          <input name="thirdField" id="thirdField" type="checkbox" />
+          <input name="thirdField" id="thirdField" type="checkbox"/>
         </div>
       </form>
     </div>
 
     <div class="activate">
-      <button onclick="getFormValues()">Get Form Values</button>
+      <button onclick="getFormValues()" name="formActivate" id="formActivate">Get Form Values</button>
     </div>
 
-    <table class="results">
+    <table class="resultsTable">
       <tr>
         <th>First Result:</th>
         <td id="firstResult"></td>
@@ -89,8 +89,8 @@
     <h2>4. Count the Stuff</h2>
 
     <p>Put the number of each element in the boxes.</p>
-    <button onclick="countTheStuff()">Count 'em up</button>
-    <table class="results">
+    <button onclick="countTheStuff()" name="countActivate" id="countActivate">Count 'em up</button>
+    <table class="resultsOfCount">
       <tr>
         <th>P</th>
         <td id="countOfP"></td>
@@ -113,7 +113,7 @@
       Make this button add new rows to the table. Make the content match what's
       already present.
     </p>
-    <button onclick="addNewRow()">Add New Row</button>
+    <button onclick="addNewRow()" id="addRow" name="addRow">Add New Row</button>
 
     <table id="addRowsTable" class="results">
       <tr>
@@ -139,7 +139,7 @@
       file or make it appear here!
     </p>
 
-    <button onclick="yourBonusChallenge()">Bonus Button</button>
+    <button onclick="yourBonusChallenge()" id="makeAClock" name="makeAClock">Bonus Button</button>
 
     <hr />
 
