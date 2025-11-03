@@ -134,8 +134,20 @@
 
     <h2>6. (Bonus) - Make Your Own Challenge!</h2>
     
-    <p>For my challenge, show today's date in one row and a digital clock in HH:MM:SS 12Hour format that updates itself in another row.</p>
-    <p>*An extra extra set of challenges: Show the local timezone of your clock, and make a 24Hour format clock. Good luck.</p>
+    <p>For my challenge:</p>
+    <li>
+      <ol>- Show today's date in Weekday, Month, Day, Year in one row</ol>
+      <ol>- And in [MM/DD/YYYY] format in a different row</ol>
+      <ol>- Make a Digital Clock in [HH:MM:SS 12Hour] format in a different row</ol>
+      <ol>- Make sure it all updates itself</ol>
+    </li>
+
+    <p>*An extra extra set of challenges if you find this too easy:</p>
+    <li>
+      <ol>- Make a [24Hr] clock in a different row</ol>
+      <ol>- Show your [local timezone] in a different row</ol>
+      <ol>- Try to hide the table before showing your solution</ol>
+    </li>
 
     <button onclick="yourBonusChallenge()" id="makeAClock" name="makeAClock">Solution / What it should look like:</button>
 
@@ -144,6 +156,9 @@
     <table>
       <tr>
         <td id="date"></td>
+      </tr>
+      <tr>
+        <td id="MM/DD/YYYY"></td>
       </tr>
       <tr>
         <td id="12Htime"></td>

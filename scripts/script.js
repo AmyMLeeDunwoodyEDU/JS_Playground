@@ -125,9 +125,12 @@ function yourBonusChallenge(){
 
     // get the time and date of today
     var time = new Date().toLocaleTimeString();
-    var today = new Date().toLocaleDateString();
+    var todaysDate = new Date();
+    var listtoday = {weekday:'long', month:'long', day:'numeric', year: 'numeric'};
+    var unformatted = {month:'numeric', day:'numeric', year:'numeric'};
+    var today = Intl.DateTimeFormat('en-US', listtoday).format(todaysDate);
+    var unformattedtoday = Intl.DateTimeFormat('en-US', unformatted).format(todaysDate);
     var tFourTime = new Date().toLocaleTimeString(navigator.language, {hour12:false, hour:'2-digit', minute:'2-digit', second:'2-digit'});
-
 
     // get the time zones and offsets
     var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -137,6 +140,7 @@ function yourBonusChallenge(){
 
     // give a format on how it is gonna be displayed onto the website.
     var display = 'Today is: ' + today;
+    var display5 = 'And today is, in MM/DD/YYYY format: ' + unformattedtoday;
     var display2 = 'The 12 hour time is: ' + time;
     var display3 = 'The 24 hour time is: ' + tFourTime;
     var display4 = 'Your timezone is: ' + timezone;
@@ -153,6 +157,9 @@ function yourBonusChallenge(){
     
     const zoneTable = document.getElementById("zone");
     zoneTable.textContent = display4 + ', ' +  shortenTZ + ', or UTC' + properOffset;
+
+    const MMDDYYYYformat = document.getElementById("MM/DD/YYYY");
+    MMDDYYYYformat.textContent = display5;
 
     // how many times this function will refresh in milliseconds
     setTimeout(yourBonusChallenge, 1000);
