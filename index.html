@@ -134,10 +134,10 @@
 
     <h2>6. (Bonus) - Make Your Own Challenge!</h2>
     
-    <p>For my challenge, show today's date in one row and a digital clock that updates itself in another row.</p>
-    <p>*An extra extra challenge: Show the local timezone of your clock. Good luck.</p>
+    <p>For my challenge, show today's date in one row and a digital clock in HH:MM:SS 12Hour format that updates itself in another row.</p>
+    <p>*An extra extra set of challenges: Show the local timezone of your clock, and make a 24Hour format clock. Good luck.</p>
 
-    <button onclick="yourBonusChallenge()" id="makeAClock" name="makeAClock">Bonus Button</button>
+    <button onclick="yourBonusChallenge()" id="makeAClock" name="makeAClock">Solution / What it should look like:</button>
 
     <hr />
 
@@ -146,7 +146,10 @@
         <td id="date"></td>
       </tr>
       <tr>
-        <td id="time"></td>
+        <td id="12Htime"></td>
+      </tr>
+      <tr>
+        <td id="24Htime"></td>
       </tr>
       <tr>
         <td id="zone"></td>

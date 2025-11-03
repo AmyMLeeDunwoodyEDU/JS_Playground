@@ -126,7 +126,9 @@ function yourBonusChallenge(){
     // get the time and date of today
     var time = new Date().toLocaleTimeString();
     var today = new Date().toLocaleDateString();
-    
+    var tFourTime = new Date().toLocaleTimeString(navigator.language, {hour12:false, hour:'2-digit', minute:'2-digit', second:'2-digit'});
+
+
     // get the time zones and offsets
     var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     var shortenTZ = new Date().toLocaleDateString('en-US', {timeZoneName: 'short'}).split(' ').pop();
@@ -135,18 +137,22 @@ function yourBonusChallenge(){
 
     // give a format on how it is gonna be displayed onto the website.
     var display = 'Today is: ' + today;
-    var display2 = 'The time is: ' + time;
-    var display3 = 'Your timezone is: ' + timezone;
+    var display2 = 'The 12 hour time is: ' + time;
+    var display3 = 'The 24 hour time is: ' + tFourTime;
+    var display4 = 'Your timezone is: ' + timezone;
 
     //find the rows of the table and put the brand new text content into the rows of the table.
     const dateTable = document.getElementById("date");
     dateTable.textContent = display;
     
-    const timeTable = document.getElementById("time");
-    timeTable.textContent = display2;
+    const twelveTimeTable = document.getElementById("12Htime");
+    twelveTimeTable.textContent = display2;
+
+    const twentyFourTimeTable = document.getElementById("24Htime");
+    twentyFourTimeTable.textContent = display3;
     
     const zoneTable = document.getElementById("zone");
-    zoneTable.textContent = display3 + ', ' +  shortenTZ + ', or UTC' + properOffset;
+    zoneTable.textContent = display4 + ', ' +  shortenTZ + ', or UTC' + properOffset;
 
     // how many times this function will refresh in milliseconds
     setTimeout(yourBonusChallenge, 1000);
