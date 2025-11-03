@@ -67,7 +67,9 @@ function styleTheText(){
 function getFormValues(){
 
     //i don't remember how i could do this more efficiently lmfao
-    //i know its a for loop but idk how the hell to use that evil thing
+    //i know its a for loop but idk how the hell to use that evil thing yet in this context
+    //if it works it works, dont let perfection be the enemy of good
+    //yada yada
 
     var firstResult = document.getElementById('firstField').value;
     var secondResult = document.getElementById('secondField').value;
@@ -77,9 +79,11 @@ function getFormValues(){
     const outputSecond = document.getElementById('secondResult');
     const outputThird = document.getElementById('thirdResult');
 
+    // for some reason, the third output or result somehow didn't change to be on or off depending if the selection box was on or off locally. strange.
+
     if (firstResult == ""){
-        outputFirst.textContent = 'There was no response from user';
-        outputSecond.textContent = secondResult;
+        outputFirst.textContent = 'There was no response from user.';
+        outputSecond.textContent = secondResult + ', This was default response.';
         outputThird.textContent = thirdResult;
     }
     else{
@@ -90,25 +94,25 @@ function getFormValues(){
 }
 
 function countTheStuff(){
-    const paragraphCount = document.querySelectorAll('p').length;
-    const countOfP = document.getElementById('countOfP');
-    countOfP.textContent = paragraphCount;
+    const paragraphCount = document.querySelectorAll('p').length; // counts all paragraphs in html
+    const countOfP = document.getElementById('countOfP'); // finds where to display this information
+    countOfP.textContent = paragraphCount; // displays this information in the selected table
 
-    const header2Count = document.querySelectorAll('h2').length;
+    const header2Count = document.querySelectorAll('h2').length; // counts all header2s in html
     const countOfH2 = document.getElementById('countOfH2');
     countOfH2.textContent = header2Count;
 
-    const tdCount = document.querySelectorAll('td').length;
+    const tdCount = document.querySelectorAll('td').length; // counts all table data cells in html
     const countOfTD = document.getElementById('countOfTD');
     countOfTD.textContent = tdCount
 }
 
 function addNewRow(){
-    const table = document.getElementById("addRowsTable");
-    const row = table.insertRow();
-    const thisTableRowCount = table.querySelectorAll('tr').length;
+    const table = document.getElementById("addRowsTable"); // gets table id
+    const row = table.insertRow(); // makes a new row for this table
+    const thisTableRowCount = table.querySelectorAll('tr').length; // gets how many rows are in this table
 
-    row.textContent = thisTableRowCount - 1
+    row.textContent = thisTableRowCount - 1 //displays how many rows have been created.
 
 }
 
