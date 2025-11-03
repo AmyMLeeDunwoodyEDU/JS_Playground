@@ -69,21 +69,29 @@ function getFormValues(){
     //i don't remember how i could do this more efficiently lmfao
     //i know its a for loop but idk how the hell to use that evil thing yet in this context
     //if it works it works, dont let perfection be the enemy of good
-    //yada yada
+    //yada-yada
 
     var firstResult = document.getElementById('firstField').value;
     var secondResult = document.getElementById('secondField').value;
-    var thirdResult = document.getElementById('thirdField').value;
+    var thirdResult = document.getElementById('thirdField').checked;
 
     const outputFirst = document.getElementById('firstResult');
     const outputSecond = document.getElementById('secondResult');
     const outputThird = document.getElementById('thirdResult');
 
-    // for some reason, the third output or result somehow didn't change to be on or off depending if the selection box was on or off locally. strange.
-
     if (firstResult == ""){
         outputFirst.textContent = 'There was no response from user.';
-        outputSecond.textContent = secondResult + ', This was default response.';
+        outputSecond.textContent = secondResult;
+        outputThird.textContent = thirdResult;
+    }
+    else if (secondResult == "#000000"){
+        outputFirst.textContent = firstResult;
+        outputSecond.textContent = secondResult + ', there was PROBABLY no response from the user.';
+        outputThird.textContent = thirdResult;
+    }
+    else if (secondResult == "#000000" & firstResult == ""){
+        outputFirst.textContent = 'There was no response from user.';
+        outputSecond.textContent = secondResult + ', there was PROBABLY no response from the user.';
         outputThird.textContent = thirdResult;
     }
     else{
@@ -110,12 +118,41 @@ function countTheStuff(){
 function addNewRow(){
     const table = document.getElementById("addRowsTable"); // gets table id
     const row = table.insertRow(); // makes a new row for this table
+    const td = row.insertCell(); // makes a new data cell for this row
     const thisTableRowCount = table.querySelectorAll('tr').length; // gets how many rows are in this table
 
-    row.textContent = thisTableRowCount - 1 //displays how many rows have been created.
+    td.textContent = thisTableRowCount - 1 // displays how many rows have been created.
 
 }
 
 function yourBonusChallenge(){
     // Make a clock that works and doesn't refresh the page.
+
+    // get the time and date of today
+    var time = new Date().toLocaleTimeString();
+    var today = new Date().toLocaleDateString();
+    
+    // get the time zones and offsets
+    var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    var shortenTZ = new Date().toLocaleDateString('en-US', {timeZoneName: 'short'}).split(' ').pop();
+    var offset = new Date().getTimezoneOffset();
+    var properOffset = -offset / 60;
+
+    // give a format on how it is gonna be displayed onto the website.
+    var display = 'Today is: ' + today;
+    var display2 = 'The time is: ' + time;
+    var display3 = 'Your timezone is: ' + timezone;
+
+    //find the rows of the table and put the brand new text content into the rows of the table.
+    const dateTable = document.getElementById("date");
+    dateTable.textContent = display;
+    
+    const timeTable = document.getElementById("time");
+    timeTable.textContent = display2;
+    
+    const zoneTable = document.getElementById("zone");
+    zoneTable.textContent = display3 + ', ' +  shortenTZ + ', or UTC' + properOffset;
+
+    // how many times this function will refresh in milliseconds
+    setTimeout(yourBonusChallenge, 1000);
 }

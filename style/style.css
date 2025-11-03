@@ -51,10 +51,13 @@ body{
 .results th, td{
   border: black 1px;
   border-style: double;
+  align-items: center;
+  justify-content: center;
 }
 
 .results th{
   max-width: .2em;
+  align-items: center;
 }
 
 #theThing {
