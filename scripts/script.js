@@ -34,18 +34,18 @@ function styleTheText(){
     var color = '#';
 
     // creating a range of potential text sizes from small to large
-    var minSize = 10
-    var maxSize = 50
+    var minSize = 30;
+    var maxSize = 50;
 
     // list of fonts that can be randomized
-    const fonts = ["Arial", "Helvetica", "Verdana", "Calibri", "Noto", "Lucida Sans", "Gill Sans", "Century Gothic", "Candara", "Futara", "Franklin Gothic Medium", "Trebuchet MS", "Geneva", "Segoe UI", "Optima", "Avanta Garde", "Comic Sans"];
+    const fonts = ["Arial", "Helvetica", "Verdana", "Calibri", "Noto", "Lucida Sans", "Gill Sans", "Century Gothic", "Candara", "Futara", "Franklin Gothic Medium", "Trebuchet MS", "Geneva", "Segoe UI", "Optima", "Avanta Garde", "Bank Gothic", "Garamond", "Times New Roman", "Brush Script MT", "Courier New", "Tahoma", "Georgia", "Aldrich", "Akronim", "DejaVu Sans"];
 
     // grabbing the object called "fancyText" from HTML
     const fancyText = document.getElementById("fancyText");
 
     // math formulas for randomizing the size and font
     const randomSize = Math.floor(Math.random() * (maxSize - minSize + 1)) + minSize + "px"; // the range of randomized sizes is 10 to 50 pixels.
-    const randomFont = fonts[Math.floor(Math.random() * fonts.length)]; // there are 17 possible fonts that can be randomized.
+    const randomFont = fonts[Math.floor(Math.random() * fonts.length)]; // there are 26 possible fonts that can be randomized.
 
     for (var i = 0; i < 6; i++){
         randomColor = color += hexadecimals[Math.floor(Math.random() * 16)];
@@ -89,11 +89,6 @@ function getFormValues(){
         outputSecond.textContent = secondResult + ', there was PROBABLY no response from the user.';
         outputThird.textContent = thirdResult;
     }
-    else if (secondResult == "#000000" & firstResult == ""){
-        outputFirst.textContent = 'There was no response from user.';
-        outputSecond.textContent = secondResult + ', there was PROBABLY no response from the user.';
-        outputThird.textContent = thirdResult;
-    }
     else{
         outputFirst.textContent = firstResult;
         outputSecond.textContent = secondResult;
@@ -112,7 +107,7 @@ function countTheStuff(){
 
     const tdCount = document.querySelectorAll('td').length; // counts all table data cells in html
     const countOfTD = document.getElementById('countOfTD');
-    countOfTD.textContent = tdCount
+    countOfTD.textContent = tdCount;
 }
 
 function addNewRow(){
