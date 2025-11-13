@@ -5,23 +5,58 @@ console.log("Script loaded!");
 function moveTheThing(){
 
     // declaration of variables
-
     const theThing = document.getElementById("theThing"); // cake
     const leftBlock = document.getElementById("leftBlock"); // left block
     const rightBlock = document.getElementById("rightBlock"); // right block
 
-    // the if and else if statements check for the cake's location.
+    //broken code, needs event listener
     
-    if (leftBlock.contains(theThing)){
+        if (leftBlock.contains(theThing)){
+            const firstPos = theThing.getBoundingClientRect(); // get cake's first location
             rightBlock.prepend(theThing); // move cake to the right
+            const secPos = theThing.getBoundingClientRect(); // get cake's second location
+
+            const deltaXthing = firstPos.left - secPos.left;
+            const deltaYthing = firstPos.top - secPos.top;
+
+            theThing.style.transform = `translate(${deltaXthing}px, ${deltaYthing}px)`;
+            theThing.style.transition = 'transform 0s';
+
+            theThing.getBoundingClientRect();
+
+            theThing.style.transition = 'transform 0.4s ease';
+            theThing.style.transform = 'translate(0,0)';
+
+            theThing.addEventListener('transitionend', () => {
+                theThing.style.transition = '';
+                theThing.style.transform = '';
+                }, { once: true });
             console.log("The Cake has been moved to the right."); // verification that this works
         }
-    
-    else if (rightBlock.contains(theThing)){
-            leftBlock.prepend(theThing); // move cake to the left
+
+        else if (rightBlock.contains(theThing)){
+            const firstPos = theThing.getBoundingClientRect(); // get cake's first location
+            leftBlock.prepend(theThing);
+            const secPos = theThing.getBoundingClientRect(); // get cake's second location
+
+            const deltaXthing = firstPos.right - secPos.right;
+            const deltaYthing = firstPos.top - secPos.top;
+
+            theThing.style.transform = `translate(${deltaXthing}px, ${deltaYthing}px)`;
+            theThing.style.transition = 'transform 0s';
+
+            theThing.getBoundingClientRect();
+
+            theThing.style.transition = 'transform 0.4s ease';
+            theThing.style.transform = 'translate(0,0)';
+
+            theThing.addEventListener('transitionend', () => {
+                theThing.style.transition = '';
+                theThing.style.transform = '';
+                }, { once: true });
             console.log("The Cake has been moved to the left."); // verification that this works
         }
-    }
+}
 
 function styleTheText(){
     
@@ -42,6 +77,7 @@ function styleTheText(){
 
     // grabbing the object called "fancyText" from HTML
     const fancyText = document.getElementById("fancyText");
+    fancyText.getBoundingClientRect();
 
     // math formulas for randomizing the size and font
     const randomSize = Math.floor(Math.random() * (maxSize - minSize + 1)) + minSize + "px"; // the range of randomized sizes is 10 to 50 pixels.

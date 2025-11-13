@@ -42,6 +42,11 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 5px;
+}
+
+#fancyText{
+  transition: font-size 0.5s ease, color 0.5s ease, font-family 0.5s ease;
 }
 
 .results{
@@ -63,4 +68,17 @@ body{
 #theThing {
   min-width: 32px;
   max-width: 32px;
+  animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce{
+  0%{
+    transform: translateY(-10px);
+  }
+  50%{
+    transform: translateY(10px);
+  }
+  100%{
+    transform: translateY(-10px);
+  }
 }
